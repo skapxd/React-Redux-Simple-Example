@@ -23,7 +23,7 @@ export const LoginScreen = () => {
         } else {
             dispatch(logOutDispatch())
         }
-        console.log(localAuth)
+        console.log('auth: ', localAuth)
     }, [localAuth])
 
     const email = '123'
@@ -43,7 +43,7 @@ export const LoginScreen = () => {
                         if (e.target.value === email) {
                             isValid = true
                         }
-                        console.log(e.target.value)
+                        console.log('input email: ', e.target.value)
                         setlocalAuth((s) => ({ ...s, email: isValid }))
                     }}
                 />
@@ -59,7 +59,7 @@ export const LoginScreen = () => {
                         if (e.target.value === pass) {
                             isValid = true
                         }
-                        console.log(e.target.value)
+                        console.log('input pass: ', e.target.value)
                         setlocalAuth((s) => ({ ...s, pass: isValid }))
                     }}
                 />
