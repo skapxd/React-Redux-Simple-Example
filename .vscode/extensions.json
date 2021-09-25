@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-close-tag",
+        "intellsmi.comment-translate",
+        "dsznajder.es7-react-js-snippets",
+        "eamodio.gitlens",
+        "zignd.html-css-class-completion",
+        "xabikos.javascriptsnippets",
+        "lonefy.vscode-js-css-html-formatter",
+        "ms-vsliveshare.vsliveshare",
+        "pkief.material-icon-theme",
+        "fabiospampinato.vscode-monokai-night",
+        "christian-kohler.path-intellisense",
+        "pnp.polacode",
+        "pmneo.tsimporter",
+        "oderwat.indent-rainbow"
+    ]
+}
