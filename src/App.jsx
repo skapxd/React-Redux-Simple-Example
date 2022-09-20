@@ -5,8 +5,8 @@ import { MainRouter } from './router/MainRouter'
 import './index.css'
 export default () => {
     return (
-        <Provider store={store}>
-            <MainRouter />
-        </Provider>
+            <Provider store={store}>
+                <MainRouter />
+            </Provider>
     )
 }
