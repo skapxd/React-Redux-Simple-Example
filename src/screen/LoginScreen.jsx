@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { nameProductoScreen } from './ProductoScreen'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    logInDispatch, logOutDispatch,
-} from '../redux/modo_1/action/AuthAction'
+  logInDispatch, logOutDispatch
+} from '../reduxToolKit/auth/authAction'
 
 export const nameLoginScreen = '/'
 
 export const LoginScreen = () => {
+  const dispatch = useDispatch()
+  const { auth } = useSelector((s) => s.auth)
 
-    const dispatch = useDispatch()
-    const auth = useSelector((s) => s.auth)
+  console.log('🚀 ~ file: LoginScreen.jsx ~ line 14 ~ LoginScreen ~ auth', useSelector((s) => s))
 
-    const initialAuth = {
-        email: false,
-        pass: false,
-    }
+  const initialAuth = {
+    email: false,
+    pass: false
+  }
 
-    const [localAuth, setlocalAuth] = useState( initialAuth )
+  const [localAuth, setlocalAuth] = useState(initialAuth)
 
-    const validInputs = () => {
-        return (localAuth.email && localAuth.pass)
-    }
+  const validInputs = () => {
+    return (localAuth.email && localAuth.pass)
+  }
 
-    const email = 'Admin'
-    const pass = 'Admin'
+  const email = 'Admin'
+  const pass = 'Admin'
 
-    if( auth ){
-
-        return(
+  if (auth) {
+    return (
 
             <div className='container'>
 
@@ -40,33 +40,30 @@ export const LoginScreen = () => {
                         <div className='text-center  my-5'>
 
                             <h1>Logged</h1>
-                            
+
                         </div>
 
                         <Link className='btn btn-outline-primary w-100 mb-2' to={nameProductoScreen}>Go to counter</Link>
 
-                        <button 
+                        <button
                             className='w-100 btn btn-outline-danger'
-                            onClick={ () => { 
-
-                                dispatch(logOutDispatch())
-                                setlocalAuth(initialAuth)
-
+                            onClick={ () => {
+                              dispatch(logOutDispatch())
+                              setlocalAuth(initialAuth)
                             }}>
                                 Log out
                         </button>
 
                     </div>
-                    
+
                 </div>
 
             </div>
 
-        )
+    )
+  }
 
-    }
-
-    return (
+  return (
         <div className='container'>
 
             <div className='row d-flex justify-content-center align-items-center'>
@@ -75,47 +72,46 @@ export const LoginScreen = () => {
                     <div className='text-center my-5'>
 
                         <h1>Login</h1>
-                        
+
                     </div>
 
-                    <div class="mb-2">
-                        <input 
-                            type="email" 
-                            class="form-control" 
-                            name="email" 
+                    <div className="mb-2">
+                        <input
+                            type="email"
+                            className="form-control"
+                            name="email"
                             placeholder="Email address"
                             onChange={(e) => {
-                                let isValid = false
-                                if (e.target.value === email) {
-                                    isValid = true
-                                }
-                                setlocalAuth((s) => ({ ...s, email: isValid }))
+                              let isValid = false
+                              if (e.target.value === email) {
+                                isValid = true
+                              }
+                              setlocalAuth((s) => ({ ...s, email: isValid }))
                             }}
                             />
                     </div>
 
-                    <div class="mb-4">
+                    <div className="mb-4">
 
-                        <input 
-                            type="email" 
-                            class="form-control" 
-                            name="password" 
-                            placeholder="Password" 
+                        <input
+                            type="email"
+                            className="form-control"
+                            name="password"
+                            placeholder="Password"
                             onChange={(e) => {
+                              let isValid = false
+                              if (e.target.value === pass) {
+                                isValid = true
+                              }
 
-                                let isValid = false
-                                if (e.target.value === pass) {
-                                    isValid = true
-                                }
-
-                                setlocalAuth((s) => ({ ...s, pass: isValid }))
+                              setlocalAuth((s) => ({ ...s, pass: isValid }))
                             }}
                             />
 
                     </div>
 
-                    <button 
-                        className='w-100 btn btn-outline-primary' 
+                    <button
+                        className='w-100 btn btn-outline-primary'
                         disabled={ !validInputs() }
                         onClick={ () => dispatch(logInDispatch())}>
                             Log in
@@ -125,5 +121,5 @@ export const LoginScreen = () => {
             </div>
 
         </div>
-    )
+  )
 }
