@@ -3,8 +3,8 @@ import { reducerAuth } from '../modo_1/reducer/AuthReducer'
 import { reducerCounter } from '../modo_1/reducer/CounterReducer'
 
 const rootReducer = combineReducers({
-    auth: reducerAuth,
-    counter: reducerCounter,
+  auth: reducerAuth,
+  counter: reducerCounter
 })
 
 // Store
